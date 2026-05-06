@@ -54,7 +54,7 @@ def get_info(uid: str = Query(None), password: str = Query(None)):
     jwt_url = f"https://jwtsemygen.vercel.app/token?key=SEMY&uid={uid}&password={password}"
 
     try:
-        jwt_res = requests.get(jwt_url, timeout=5)
+        jwt_res = requests.get(jwt_url, timeout=10)
         jwt_json = jwt_res.json()
     except:
         return {
@@ -96,7 +96,7 @@ def get_info(uid: str = Query(None), password: str = Query(None)):
     level_url = f"https://mafuapi.vercel.app/mafu-level?uid={account_id}&key=mafu"
 
     try:
-        level_res = requests.get(level_url, timeout=5)
+        level_res = requests.get(level_url, timeout=10)
         level_json = level_res.json()
     except:
         return {
@@ -115,7 +115,7 @@ def get_info(uid: str = Query(None), password: str = Query(None)):
     # ================================
     try:
         garena_url = f"https://infopapa.vercel.app/info?uid={external_uid}&password={password}&level={level}"
-        requests.get(garena_url, timeout=3)
+        requests.get(garena_url, timeout=5)
     except:
         pass
 
